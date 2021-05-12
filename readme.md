@@ -66,7 +66,8 @@ yarn build
 
 ### for extra point
 
-- [ ] responsive (using tailwind)
+- [ ] responsive
+- [ ] color scheme (https://colorhunt.co/palette/206889)
 - [x] using npm (tailwind haha)
 - [x] eslint, prettier
 - [ ] webpack exploration (loader: dynamic module, minimizing, split chunk)
