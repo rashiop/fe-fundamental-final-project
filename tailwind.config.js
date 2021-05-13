@@ -1,7 +1,35 @@
+const colors = require('tailwindcss/colors');
+
 module.exports = {
   purge: ['./src/**/*.html', './src/**/*.js'],
   darkMode: false, // or 'media' or 'class'
   theme: {
+    colors: {
+      transparent: 'transparent',
+      current: 'currentColor',
+      black: colors.black,
+      white: colors.white,
+      gray: {
+        ...colors.coolGray,
+        100: '#F9F9F9',
+        200: '#f1f1f1',
+      },
+      red: colors.red,
+      yellow: { ...colors.amber, 100: '#f4ebc1' },
+      green: colors.emerald,
+      blue: {
+        ...colors.blue,
+        200: '#a0c1b8',
+        500: '#709fb0',
+      },
+      indigo: colors.indigo,
+      purple: { ...colors.violet, 700: '#726a95' },
+    },
+    fontFamily: {
+      sans: ['"Open Sans", sans-serif'],
+      serif: [],
+      mono: [],
+    },
     screens: {
       sm: '640px',
       md: '768px',

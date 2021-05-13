@@ -33,26 +33,33 @@ yarn build
 |   |__ webpack.prod.js               # additional config for production
 ├── dist                              # build output
 ├── src
+|   ├── images
+|   |   ├── content
+|   |   ├── design
 |   ├── scripts
 |   |   ├── component
 |   |   |   ├── cocktail-item.js
 |   |   |   ├── cocktail-list.js
-|   |   |   ├── search-bar.js
+|   |   |   ├── footer-menu.js
+|   |   |   ├── footer-bar.js
 |   |   |   ├── navbar.js
-|   |   |   ├── footer.js
-|   |   |   |__ index.js
-|   |   ├── data
-|   |   |   ├── cocktail-datasource.js
-|   |   |   |__ index.js
+|   |   |   |__ search-bar.js
+|   |   |__ data
+|   |       ├── cocktail-datasource.js
+|   |       |__ index.js
 |   ├── styles
+|   |   |__ style.css
 |   ├── views
 |   |   |__ main.js
 |   ├── app.js
+|   ├── site.webmanifest
 |   ├── template.html                 # template for html bundle
 |   ├── .gitignore                    # ignore dists, node_modules
 |   ├── package.json                  # node package manager, maintain versioning & depedencies
 |   |── yarn.lock                     # deterministic package depedency resolution
 |   |── .eslintrc.js                  # eslint config
+|   |── postcss.config.js             # postcss config
+|   |── tailwind.config.js            # tailwind config
 |   |__ prettier.config.js            # prettier config
 
 ```
@@ -60,14 +67,14 @@ yarn build
 ### MVP:
 
 - [x] webpack config
-- [ ] webcomponent
+- [x] webcomponent
 - [ ] es6
 - [ ] fetch
 
 ### for extra point
 
 - [ ] responsive
-- [ ] color scheme (https://colorhunt.co/palette/206889)
+- [x] color scheme (https://colorhunt.co/palette/206889)
 - [x] using npm (tailwind haha)
 - [x] eslint, prettier
 - [ ] webpack exploration (loader: dynamic module, minimizing, split chunk)

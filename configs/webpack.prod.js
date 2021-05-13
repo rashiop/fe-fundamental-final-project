@@ -6,7 +6,6 @@ Refer to https://webpack.js.org/plugins/terser-webpack-plugin/
  * */
 const TerserPlugin = require('terser-webpack-plugin');
 const { merge } = require('webpack-merge');
-const path = require('path');
 const common = require('./webpack.common');
 
 module.exports = merge(common, {
@@ -29,7 +28,7 @@ module.exports = merge(common, {
     rules: [
       {
         test: /\.js$/,
-        exclude: path.resolve(__dirname, '/node_modules/'),
+        exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
           options: {
