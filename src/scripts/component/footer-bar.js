@@ -7,16 +7,15 @@ class FooterBar extends HTMLElement {
     this.innerHTML = `
       <footer
       class="
-        bg-blue-100
+        bg-blue-500
         flex
         justify-center
         px-4
         py-4
         text-center
-        font-semibold
       "
       >
-        <p class="font-sm">Copyright 2021 • Poppy</p>
+        <p class="font-sm">Copyright © xxxx - 2021 Poppy</p>
       </footer>
     `;
   }

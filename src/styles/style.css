@@ -6,15 +6,19 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  /* font-family: 'Montserrat', sans-serif; */
 }
 
 body {
-  /* font-family: sans-serif; */
+  letter-spacing: 0.07em;
 }
 
-main {
-  width: 90%;
-  max-width: 800px;
-  margin: 32px auto;
+@layer components {
+  .title-logo {
+    @apply text-2xl font-light text-yellow-100 tracking-widest filter drop-shadow-lg;
+  }
+
+  #input--search-cocktail:focus,
+  #btn--search-cocktail:focus {
+    outline: none;
+  }
 }

@@ -26,16 +26,16 @@ class FooterMenu extends HTMLElement {
         const menu = values
           .map(
             ({ link, text }) => `<li>
-                      <a href="${link}" class="hover:underline py-0.5 block">
+                      <a href="${link}" class="hover:underline py-0.25 block">
                       ${text}
                       </a>
                   </li>`
           )
           .join('');
 
-        return `<div class="w-full md:w-3/12 mb-4 md:mb-0 accordion">
+        return `<div class="w-full md:w-3/12 mb-2 md:mb-0">
                 <h5 class="text-lg font-semibold mb-2 relative">${section}</h5>
-                <ul class="h-0 invisible md:h-auto md:visible overflow-hidden">
+                <ul class="h-auto overflow-hidden">
                   ${menu}
                 </ul>
               </div>`;
@@ -45,10 +45,10 @@ class FooterMenu extends HTMLElement {
 
   render() {
     this.innerHTML = `
-      <section class="bg-purple-700">
-        <div class="div border-t border-b border-gray-100 py-12 mt-16 px-4">
-          <div class="flex justify-center text-center mb-8">
-            <h1 class="text-2xl font-light drop-shadow-lg">
+      <section class="bg-blue-200">
+        <div class="div border-t border-b border-gray-100 py-12 px-4">
+          <div class="flex justify-center text-center mb-4">
+            <h1 class="title-logo">
               Cocktail 101
             </h1>
           </div>
