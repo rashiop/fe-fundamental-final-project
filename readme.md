@@ -42,11 +42,9 @@ yarn build
 |   |   |   ├── cocktail-list.js
 |   |   |   ├── footer-menu.js
 |   |   |   ├── footer-bar.js
-|   |   |   ├── navbar.js
-|   |   |   |__ search-bar.js
+|   |   |   |__ hero-landing.js
 |   |   |__ data
-|   |       ├── cocktail-datasource.js
-|   |       |__ index.js
+|   |       |__ cocktail-datasource.js
 |   ├── styles
 |   |   |__ style.css
 |   ├── views
@@ -68,12 +66,12 @@ yarn build
 
 - [x] webpack config
 - [x] webcomponent
-- [ ] es6
-- [ ] fetch
+- [x] es6
+- [x] fetch
 
 ### for extra point
 
-- [ ] responsive
+- [x] responsive
 - [x] color scheme (https://colorhunt.co/palette/206889)
 - [x] using npm (tailwind haha)
 - [x] eslint, prettier
