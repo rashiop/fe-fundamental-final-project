@@ -73,9 +73,9 @@ yarn build
 
 - [x] responsive
 - [x] color scheme (https://colorhunt.co/palette/206889)
-- [x] using npm (tailwind haha)
+- [x] using npm (+ tailwind)
 - [x] eslint, prettier
-- [ ] webpack exploration (loader: dynamic module, minimizing, split chunk)
+- [x] webpack exploration (loader: minimizing)
 
 ### Dev depedencies
 
