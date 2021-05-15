@@ -1,9 +1,6 @@
 const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ImageMinPlugin = require('imagemin-webpack-plugin').default;
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const sourcePath = path.resolve(__dirname, '../src/');
 const outputPath = path.resolve(__dirname, '../dist/');
@@ -18,15 +15,11 @@ module.exports = {
     rules: [
       {
         test: /.css$/i,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
+        use: ['style-loader', 'css-loader', 'postcss-loader'],
       },
     ],
   },
   plugins: [
-    new MiniCssExtractPlugin({
-      filename: './src/styles/[name].minify.css',
-    }),
-    new ImageMinPlugin({ test: /\.(jpg|jpeg|png|gif|svg)$/i }),
     new HtmlWebpackPlugin({
       template: './src/template.html',
       filename: 'index.html',
