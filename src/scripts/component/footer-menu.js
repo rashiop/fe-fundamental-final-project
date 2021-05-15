@@ -33,7 +33,7 @@ class FooterMenu extends HTMLElement {
           )
           .join('');
 
-        return `<div class="w-full md:w-3/12 mb-2 md:mb-0">
+        return `<div class="w-full px-10 md:px-0 md:w-3/12 mb-2 md:mb-0">
                 <h5 class="text-lg font-semibold mb-2 relative">${section}</h5>
                 <ul class="h-auto overflow-hidden">
                   ${menu}
@@ -47,11 +47,6 @@ class FooterMenu extends HTMLElement {
     this.innerHTML = `
       <section class="bg-blue-200">
         <div class="div border-t border-b border-gray-100 py-12 px-4">
-          <div class="flex justify-center text-center mb-4">
-            <h1 class="title-logo">
-              Cocktail 101
-            </h1>
-          </div>
           <aside class="container mx-auto">
             <div class="flex flex-wrap md:space-x-4 justify-center">
              ${this.renderMenu()}

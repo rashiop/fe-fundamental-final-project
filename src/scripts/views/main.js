@@ -17,9 +17,8 @@ const main = () => {
 
   const onButtonSearchClicked = async () => {
     try {
-      const filteredDrink = await DataSource.searchCocktail(
-        heroLandingElement.value
-      );
+      const keyword = heroLandingElement.value;
+      const filteredDrink = await DataSource.searchCocktail(keyword);
       renderResult(filteredDrink);
     } catch (ex) {
       fallbackResult(ex);

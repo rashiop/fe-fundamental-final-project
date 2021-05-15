@@ -1,5 +1,10 @@
 import './cocktail-item';
 
+/*
+NOTES: tailwind styles didnt affect shadow dom
+I'll just use plain css in cocktail item and cocktail list
+*/
+
 class CocktailList extends HTMLElement {
   constructor() {
     super();
@@ -8,7 +13,9 @@ class CocktailList extends HTMLElement {
 
   set drinks(drinks) {
     this._drinks = drinks;
-    this.render();
+    if (Array.isArray(this._drinks)) {
+      this.render();
+    }
   }
 
   render() {
@@ -42,6 +49,7 @@ class CocktailList extends HTMLElement {
     `;
 
     this.shadowDOM.innerHTML = '';
+
     this._drinks.forEach((drink) => {
       const CocktailElement = document.createElement('cocktail-item');
       CocktailElement.drink = drink;
@@ -50,7 +58,13 @@ class CocktailList extends HTMLElement {
   }
 
   renderError(message) {
-    this.shadowDOM.innerHTML = '';
+    this.shadowDOM.innerHTML = `
+      <style>
+        h2 {
+          text-align: center;
+        }
+      </style>
+    `;
     this.shadowDOM.innerHTML += `<h2 class="placeholder">${message}</h2>`;
   }
 }

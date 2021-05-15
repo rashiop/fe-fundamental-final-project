@@ -1,3 +1,8 @@
+/*
+NOTES: tailwind styles didnt affect shadow dom
+I'll just use plain css in cocktail item and cocktail list
+*/
+
 class CocktailItem extends HTMLElement {
   constructor() {
     super();
@@ -20,6 +25,7 @@ class CocktailItem extends HTMLElement {
       strIngredient2,
       strIngredient3,
     } = this._drink || {};
+
     this.shadowDOM.innerHTML = `
       <style>
         * {
@@ -27,6 +33,7 @@ class CocktailItem extends HTMLElement {
           padding: 0;
           box-sizing: border-box;
         }
+
         :host {
           margin: 0.75em 0;
           box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -34,14 +41,14 @@ class CocktailItem extends HTMLElement {
           overflow: hidden;
           background-color: white;
         }
-          
+
         @media (min-width: 768px) {
           :host {
             max-width: 31%;
             margin: 0.75em;
           }
         }
-
+        
         .card--image {
           width: 100%;
           display: block;
@@ -83,7 +90,7 @@ class CocktailItem extends HTMLElement {
   
       <img
         class="card--image"
-        src="${strDrinkThumb}"
+        src="${strDrinkThumb || './images/content/landing-page.webp'}"
         alt="${strImageAttribution}"
       >
       <div class="card--info">
@@ -93,9 +100,9 @@ class CocktailItem extends HTMLElement {
         <p>
           Ingredients:
           <ul>
-            ${strIngredient1 ? `<li>${strIngredient1}</li>` : null}
-            ${strIngredient2 ? `<li>${strIngredient2}</li>` : null}
-            ${strIngredient3 ? `<li>${strIngredient3}</li>` : null}
+            ${strIngredient1 ? `<li>${strIngredient1}</li>` : ''}
+            ${strIngredient2 ? `<li>${strIngredient2}</li>` : ''}
+            ${strIngredient3 ? `<li>${strIngredient3}</li>` : ''}
             <li>secrets</li>
           </ul>
         </p>

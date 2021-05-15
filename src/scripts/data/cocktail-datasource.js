@@ -9,9 +9,8 @@ class CocktailDS {
           return Promise.resolve(responseJson.drinks);
         }
         // eslint-disable-next-line prefer-promise-reject-errors
-        return Promise.reject(`${keyword} is not a function`);
-      })
-      .catch(() => `${keyword} is not found`);
+        return Promise.reject(`${keyword} not found`);
+      });
   }
 }
 
