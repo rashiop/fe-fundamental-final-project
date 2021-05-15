@@ -58,9 +58,10 @@ class CocktailList extends HTMLElement {
   }
 
   renderError(message) {
+    this.innerHTML = ''; // clear render style
     this.shadowDOM.innerHTML = `
       <style>
-        h2 {
+        .placeholder {
           text-align: center;
         }
       </style>
