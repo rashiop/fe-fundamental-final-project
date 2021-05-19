@@ -1,7 +1,7 @@
 class FooterMenu extends HTMLElement {
   constructor() {
     super();
-    this.menu = {
+    this._menu = {
       Overview: [{ text: 'Subscription', link: '#' }],
       Company: [
         { text: 'About', link: '#' },
@@ -20,27 +20,31 @@ class FooterMenu extends HTMLElement {
     this.render();
   }
 
-  renderMenu() {
-    return Object.entries(this.menu)
-      .map(([section, values]) => {
-        const menu = values
-          .map(
-            ({ link, text }) => `<li>
-                      <a href="${link}" class="hover:underline py-0.25 block">
-                      ${text}
-                      </a>
-                  </li>`
-          )
-          .join('');
+  // eslint-disable-next-line class-methods-use-this
+  renderMenuItem({ link, text }) {
+    return `<li>
+            <a href="${link}" class="hover:underline py-0.25 block">
+              ${text}
+            </a>
+          </li>`;
+  }
 
-        return `<div class="w-full px-10 md:px-0 md:w-3/12 mb-2 md:mb-0">
+  renderMenu() {
+    const menu = Object.entries(this._menu)
+      .map(
+        ([
+          section,
+          values,
+        ]) => `<div class="w-full px-10 md:px-0 md:w-3/12 mb-2 md:mb-0">
                 <h5 class="text-lg font-semibold mb-2 relative">${section}</h5>
                 <ul class="h-auto overflow-hidden">
-                  ${menu}
+                  ${values.map(this.renderMenuItem).join('')}
                 </ul>
-              </div>`;
-      })
+              </div>`
+      )
       .join('');
+
+    return menu;
   }
 
   render() {

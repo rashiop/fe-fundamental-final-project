@@ -14,6 +14,26 @@ class CocktailItem extends HTMLElement {
     this.render();
   }
 
+  renderIngredient() {
+    const { strIngredient1, strIngredient2, strIngredient3 } = this._drink;
+    const ingredients = [strIngredient1, strIngredient2, strIngredient3]
+      .filter(Boolean)
+      .map((ingredient) => `<li>${ingredient}</li>`);
+    if (ingredients.length) {
+      return `
+        <p>
+          Ingredients:
+          <ul>
+            ${ingredients.join('')}
+            <li>secrets</li>
+          </ul>
+        </p>
+      `;
+    }
+
+    return '';
+  }
+
   render() {
     const {
       strDrinkThumb,
@@ -21,9 +41,6 @@ class CocktailItem extends HTMLElement {
       strDrink,
       strAlcoholic,
       strInstructions,
-      strIngredient1,
-      strIngredient2,
-      strIngredient3,
     } = this._drink || {};
 
     this.shadowDOM.innerHTML = `
@@ -49,7 +66,7 @@ class CocktailItem extends HTMLElement {
           }
         }
         
-        .card--image {
+        .card__image {
           width: 100%;
           display: block;
           max-height: 300px;
@@ -57,15 +74,15 @@ class CocktailItem extends HTMLElement {
           object-position: center;
         }
       
-        .card--info {
+        .card__info {
           padding: 2em;
         }
       
-        .card--info > h2 {
+        .card__info > h2 {
           font-weight: lighter;
         }
       
-        .card--info > p {
+        .card__info > p {
           margin-top: 10px;
           overflow: hidden;
           text-overflow: ellipsis;
@@ -74,11 +91,11 @@ class CocktailItem extends HTMLElement {
           -webkit-line-clamp: 5;
         }
 
-        .card--info ul {
+        .card__info ul {
           list-style-position: inside;
         }
 
-        .card--info--tag {
+        .card__info__tag {
           padding: 0 8px;
           width: fit-content;
           background: gray;
@@ -89,23 +106,15 @@ class CocktailItem extends HTMLElement {
 
   
       <img
-        class="card--image"
+        class="card__image"
         src="${strDrinkThumb || './images/content/landing-page.webp'}"
         alt="${strImageAttribution}"
       >
-      <div class="card--info">
+      <div class="card__info">
         <h2>${strDrink}</h2>
-        <h4 class="card--info--tag">${strAlcoholic}</h4>
+        <h4 class="card__info__tag">${strAlcoholic}</h4>
         <p>${strInstructions}</p>
-        <p>
-          Ingredients:
-          <ul>
-            ${strIngredient1 ? `<li>${strIngredient1}</li>` : ''}
-            ${strIngredient2 ? `<li>${strIngredient2}</li>` : ''}
-            ${strIngredient3 ? `<li>${strIngredient3}</li>` : ''}
-            <li>secrets</li>
-          </ul>
-        </p>
+       ${this.renderIngredient()}
       </div>
     `;
   }

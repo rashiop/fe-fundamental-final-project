@@ -24,7 +24,6 @@ class CocktailList extends HTMLElement {
         cocktail-list {
           display: flex;
           flex-wrap: wrap;
-          flex-direction: col;
           margin-top: 32px;
           width: 100%;
           padding: 16px;
@@ -67,6 +66,27 @@ class CocktailList extends HTMLElement {
       </style>
     `;
     this.shadowDOM.innerHTML += `<h2 class="placeholder">${message}</h2>`;
+  }
+
+  renderLoading() {
+    this.shadowDOM.innerHTML = `
+      <style>
+        .loading {
+          width: 100%;
+          text-align: center;
+          padding: 30px 0;
+        }
+
+        .loading__image {
+          width: 45px;
+          height: 45px;
+          object-fit: cover;
+        }
+      </style>
+      <div class="loading">
+      <img src="./images/design/loading.gif" alt="loading" class="loading__image" />
+      </div>
+    `;
   }
 }
 

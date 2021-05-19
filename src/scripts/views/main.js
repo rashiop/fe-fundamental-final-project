@@ -11,20 +11,26 @@ const main = () => {
     cocktailListElement.renderError(message);
   };
 
+  const renderLoading = () => {
+    cocktailListElement.renderLoading();
+  };
+
   const renderResult = (results) => {
     cocktailListElement.drinks = results;
   };
 
-  const onButtonSearchClicked = async () => {
-    try {
-      const keyword = heroLandingElement.value;
-      const filteredDrink = await DataSource.searchCocktail(keyword);
-      renderResult(filteredDrink);
-    } catch (ex) {
-      fallbackResult(ex);
-    }
+  heroLandingElement.clickEvent = async () => {
+    renderLoading();
+    setTimeout(async () => {
+      try {
+        const keyword = heroLandingElement.value;
+        const filteredDrink = await DataSource.searchCocktail(keyword);
+        renderResult(filteredDrink);
+      } catch (ex) {
+        fallbackResult(ex);
+      }
+    }, 5000);
   };
-  heroLandingElement.clickEvent = onButtonSearchClicked;
 };
 
 export default main;
